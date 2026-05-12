@@ -1,0 +1,113 @@
+/* =========================================================
+   Light 테마 - 깔끔하고 미니멀
+   배경: 따뜻한 흰색, 강조: 인디고 + 산호색
+   ========================================================= */
+
+:root[data-theme="light"],
+body[data-theme="light"] {
+  --bg-primary: #fafaf7;
+  --bg-secondary: #f0eee8;
+  --bg-tertiary: #e6e3da;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #888880;
+  --accent-primary: #4338ca;     /* indigo */
+  --accent-secondary: #ea580c;   /* orange */
+  --accent-danger: #dc2626;      /* red */
+  --border: #d6d2c4;
+  --code-bg: #2d2a26;            /* 코드는 어둡게 (가독성) */
+}
+
+body { background: var(--bg-primary); }
+
+.reveal {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  color: var(--text-primary);
+}
+
+.reveal h2 {
+  color: var(--accent-primary);
+}
+
+.reveal a { color: var(--accent-primary); }
+.reveal a:hover { color: var(--accent-secondary); }
+
+.reveal strong { color: var(--accent-secondary); font-weight: 700; }
+
+/* === Act divider === */
+.act-divider {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.act-divider .act-number {
+  color: var(--accent-primary);
+}
+
+/* === Emphasis divider === */
+.emphasis-divider .emphasis-mark {
+  color: var(--accent-secondary);
+}
+
+/* === Source === */
+.reveal .source { color: var(--text-muted); }
+
+/* === Quote === */
+.reveal blockquote {
+  background: var(--bg-secondary);
+  border-left-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+/* === Table === */
+.reveal table th {
+  border-bottom-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.reveal table td { border-bottom-color: var(--border); color: var(--text-primary); }
+
+/* === Lead === */
+.reveal .lead { color: var(--text-secondary); }
+
+/* === Keyword === */
+.reveal .kw {
+  background: var(--bg-tertiary);
+  color: var(--accent-primary);
+  border: 1px solid var(--border);
+}
+
+/* === Compare grid === */
+.reveal .compare-grid > div {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+/* === Box === */
+.reveal .box {
+  background: var(--bg-secondary);
+  border-left-color: var(--accent-primary);
+}
+
+.reveal .box-title { color: var(--accent-primary); }
+
+/* === Code === */
+.reveal pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+}
+
+/* === Theme switcher === */
+.theme-switcher {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+}
+
+.theme-switcher button { color: var(--text-secondary); }
+.theme-switcher button.active {
+  background: var(--accent-primary);
+  color: white;
+}

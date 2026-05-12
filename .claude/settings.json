@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"D:/lg/work/SLS/seminar/vibe-coding-seminar/.claude/hooks/seminar-log.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

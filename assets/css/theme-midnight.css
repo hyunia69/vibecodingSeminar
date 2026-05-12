@@ -1,0 +1,134 @@
+/* =========================================================
+   Midnight 테마 - 영화적 분위기
+   배경: 깊은 자정 보라, 강조: 분홍 + 청록 (네온풍)
+   ========================================================= */
+
+:root[data-theme="midnight"],
+body[data-theme="midnight"] {
+  --bg-primary: #0a0418;
+  --bg-secondary: #15082b;
+  --bg-tertiary: #1f1240;
+  --text-primary: #ede9f5;
+  --text-secondary: #a89cc4;
+  --text-muted: #6a5e85;
+  --accent-primary: #ff6ec7;     /* hot pink */
+  --accent-secondary: #00f0ff;   /* cyan */
+  --accent-danger: #ff5577;
+  --border: #2a1a4a;
+  --code-bg: #06030f;
+}
+
+body { background: var(--bg-primary); }
+
+.reveal {
+  background: radial-gradient(ellipse at top, #1a0838 0%, var(--bg-primary) 60%);
+  color: var(--text-primary);
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  color: var(--text-primary);
+}
+
+.reveal h1 {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.reveal h2 {
+  color: var(--accent-primary);
+  text-shadow: 0 0 20px rgba(255, 110, 199, 0.3);
+}
+
+.reveal a { color: var(--accent-secondary); }
+.reveal a:hover { color: var(--accent-primary); }
+
+.reveal strong {
+  color: var(--accent-secondary);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+/* === Act divider === */
+.act-divider {
+  background: radial-gradient(ellipse at center, var(--bg-secondary) 0%, var(--bg-primary) 80%);
+}
+
+.act-divider .act-number {
+  color: var(--accent-secondary);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+}
+
+/* === Emphasis divider === */
+.emphasis-divider .emphasis-mark {
+  color: var(--accent-primary);
+  text-shadow: 0 0 60px rgba(255, 110, 199, 0.7), 0 0 20px rgba(255, 110, 199, 0.4);
+}
+
+/* === Source === */
+.reveal .source { color: var(--text-muted); }
+
+/* === Quote === */
+.reveal blockquote {
+  background: var(--bg-secondary);
+  border-left-color: var(--accent-primary);
+  color: var(--text-primary);
+  box-shadow: 0 0 30px rgba(255, 110, 199, 0.1);
+}
+
+/* === Table === */
+.reveal table th {
+  border-bottom-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.reveal table td { border-bottom-color: var(--border); }
+
+/* === Lead === */
+.reveal .lead { color: var(--text-secondary); }
+
+/* === Keyword === */
+.reveal .kw {
+  background: var(--bg-tertiary);
+  color: var(--accent-secondary);
+  border: 1px solid var(--accent-secondary);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+}
+
+/* === Compare grid === */
+.reveal .compare-grid > div {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+}
+
+.reveal .compare-grid > div:first-child h3 { color: var(--accent-primary); }
+.reveal .compare-grid > div:last-child h3 { color: var(--accent-secondary); }
+
+/* === Box === */
+.reveal .box {
+  background: var(--bg-secondary);
+  border-left-color: var(--accent-primary);
+}
+
+.reveal .box-title { color: var(--accent-primary); }
+
+/* === Code === */
+.reveal pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.6), 0 0 20px rgba(255, 110, 199, 0.1);
+}
+
+/* === Theme switcher === */
+.theme-switcher {
+  background: rgba(21, 8, 43, 0.85);
+  border: 1px solid var(--border);
+}
+
+.theme-switcher button { color: var(--text-secondary); }
+.theme-switcher button.active {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  box-shadow: 0 0 20px rgba(255, 110, 199, 0.6);
+}

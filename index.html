@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바이브코딩 → 에이전틱 엔지니어링 | 세미나</title>
+
+  <!-- Pretendard (한글) -->
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+
+  <!-- JetBrains Mono (코드) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.min.css" id="hljs-theme">
+
+  <!-- 우리 스타일 -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/theme-dark.css" id="theme-stylesheet">
+</head>
+<body data-theme="dark">
+
+  <!-- 테마 선택기 (우상단) -->
+  <div class="theme-switcher" id="themeSwitcher">
+    <button data-theme="dark" class="active" title="Dark">🌙</button>
+    <button data-theme="light" title="Light">☀️</button>
+    <button data-theme="midnight" title="Midnight">🌌</button>
+  </div>
+
+  <!-- 로딩 -->
+  <div id="loader" style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-family:JetBrains Mono,monospace;color:#5dd5c4;z-index:9999;font-size:18px;">
+    슬라이드 로딩 중...
+  </div>
+
+  <div class="reveal">
+    <div class="slides" id="slidesContainer"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/theme-switcher.js"></script>
+  <script src="assets/js/visualizations.js"></script>
+
+  <script>
+    const SLIDE_FILES = [
+      'slides/00-title.md',
+
+      { inline: `<section class="act-divider" data-section="act1">
+        <div class="act-number">ACT 1</div>
+        <h1>무엇이 일어났는가</h1>
+        <p class="subtitle">바이브코딩의 1년, 그리고 다음</p>
+      </section>` },
+
+      'slides/01-01-karpathy-tweet.md',
+      'slides/01-02-evolution-timeline.md',
+      'slides/01-03-rename-to-agentic.md',
+      'slides/01-04-opus-47.md',
+      'slides/01-05-pitfalls-stats.md',
+      'slides/01-06-replit-incident.md',
+      'slides/01-07-our-position.md',
+
+      { inline: `<section class="act-divider" data-section="act2">
+        <div class="act-number">ACT 2</div>
+        <h1>어떻게 작동하는가</h1>
+        <p class="subtitle">하니스 · 컨텍스트 · 서브에이전트</p>
+      </section>` },
+
+      'slides/02-01-harness-etymology.md',
+      'slides/02-02-harness-definition.md',
+      // 02-05 (3단 엔지니어링)을 정의 직후로 이동 — outline 의도 (Prompt → Context → Harness 진화 흐름이 7요소·Thin/Fat의 setup이 되도록)
+      'slides/02-05-three-engineerings.md',
+      'slides/02-03-harness-7-components.md',
+      'slides/02-04-thin-harness-fat-skills.md',
+      'slides/02-06-context-window-anatomy.md',
+
+      { inline: `<section id="context-viz-slide">
+        <h2>컨텍스트 윈도우 해부</h2>
+        <p class="lead">실시간 시각화 — 무엇이 토큰을 차지하는가</p>
+        <div id="contextWindowViz" class="viz-container"></div>
+      </section>` },
+
+      { inline: `<section data-section="act2" id="conversation-accumulation">
+        <h2>Conversation은 누적된다</h2>
+
+        <p class="lead" style="margin-top: var(--space-sm);">
+          LLM은 stateless. 매 턴마다 이전 대화 전부 + 새 입력이 다시 보내진다.
+        </p>
+
+        <div style="display: grid; gap: var(--space-sm); margin-top: var(--space-md); max-width: 1300px; margin-left: auto; margin-right: auto;">
+
+          <div class="box" style="padding: 14px 24px;">
+            <div class="box-title">Turn 1</div>
+            <p style="font-family: var(--font-mono); font-size: 0.85em; margin: 4px 0;">
+              <span class="kw">input₁</span> &nbsp;→&nbsp; LLM &nbsp;→&nbsp; <span class="kw">output₁</span>
+            </p>
+            <p style="opacity: 0.7; font-size: 0.78em; margin: 2px 0 0;">보낸 토큰 = <strong>input₁</strong></p>
+          </div>
+
+          <div class="box" style="padding: 14px 24px;">
+            <div class="box-title">Turn 2</div>
+            <p style="font-family: var(--font-mono); font-size: 0.85em; margin: 4px 0;">
+              <span class="kw">input₁ + output₁ + input₂</span> &nbsp;→&nbsp; LLM &nbsp;→&nbsp; <span class="kw">output₂</span>
+            </p>
+            <p style="opacity: 0.7; font-size: 0.78em; margin: 2px 0 0;">보낸 토큰 = 이전 턴 전부 + 새 입력</p>
+          </div>
+
+          <div class="box" style="border-left-color: var(--accent-secondary); padding: 14px 24px;">
+            <div class="box-title" style="color: var(--accent-secondary);">Turn 3</div>
+            <p style="font-family: var(--font-mono); font-size: 0.85em; margin: 4px 0;">
+              <span class="kw">input₁ + output₁ + input₂ + output₂ + input₃</span> &nbsp;→&nbsp; LLM &nbsp;→&nbsp; <span class="kw">output₃</span>
+            </p>
+            <p style="opacity: 0.7; font-size: 0.78em; margin: 2px 0 0;">보낸 토큰 = 5개 누적 + 새 입력</p>
+          </div>
+
+        </div>
+
+        <p class="callout" style="margin-top: var(--space-sm);">
+          5턴이면 input₁이 5번 LLM에 다시 보내진 셈. 그래서 prompt caching이 비용의 핵심.
+        </p>
+
+        <aside class="notes">
+          핵심: LLM은 stateless — "기억"하는 게 아니라 매번 전체 컨텍스트를 다시 받는다.
+          이 사실이 두 가지 결과를 만든다:
+          1. Conversation 영역이 가장 빠르게 커진다 (n²에 가까운 누적).
+          2. 캐시 적중률이 비용을 좌우 — Anthropic prompt cache는 약 90% 절감.
+          다음 슬라이드(토큰 경제학)에서 이걸 가격으로 환산해 보여줌.
+        </aside>
+      </section>` },
+
+      'slides/02-06b-per-request-isolation.md',
+      'slides/02-06c-window-vs-cost.md',
+      'slides/02-07-token-economics.md',
+      'slides/02-08-demo1-claude-code.md',
+      'slides/02-09-memory-files.md',
+      'slides/02-10-good-vs-bad-claudemd.md',
+
+      { inline: `<section class="emphasis-divider">
+        <div class="emphasis-mark">★</div>
+        <h1>서브에이전트와 병렬 실행</h1>
+        <p class="subtitle">2026년 가장 큰 게임체인저</p>
+      </section>` },
+
+      'slides/02-11-why-multi-agent.md',
+
+      { inline: `<section id="single-vs-multi-slide">
+        <h2>Single → Multi-agent</h2>
+        <div id="singleVsMultiViz" class="viz-container"></div>
+      </section>` },
+
+      'slides/02-12-worktree-mechanism.md',
+      'slides/02-13-orchestrator-pattern.md',
+      'slides/02-14-subagent-demo.md',
+      'slides/02-15-subagent-pitfalls.md',
+
+      { inline: `<section class="act-divider" data-section="act3">
+        <div class="act-number">ACT 3</div>
+        <h1>무엇으로 만드는가</h1>
+        <p class="subtitle">생태계 · 프레임워크 · 실전</p>
+      </section>` },
+
+      'slides/03-01-tool-landscape.md',
+      'slides/03-02-local-models.md',
+      'slides/03-03-mcp-intro.md',
+      'slides/03-03b-mcp-config.md',
+      'slides/03-04-mcp-vs-skills.md',
+      'slides/03-05-demo2-notion-mcp.md',
+      'slides/03-05b-meta-workflow.md',
+      'slides/03-06-spec-driven-dev.md',
+      'slides/03-06b-spec-driven-tools.md',
+      'slides/03-06c-our-sdd-workflow.md',
+      'slides/03-06d-tools-workflow.md',
+      'slides/03-07-harness-frameworks.md',
+      'slides/03-07a-superpowers.md',
+      'slides/03-07a2-superpowers-tdd.md',
+      'slides/03-07a3-tdd-command.md',
+      'slides/03-07b-gstack.md',
+      'slides/03-07c-omo.md',
+      'slides/03-08-superpowers-gstack.md',
+      'slides/03-09-computer-use.md',
+      'slides/03-10-demo3-fullstack.md',
+      'slides/03-07d-hermes-vs-openclaw.md',
+      'slides/03-07e-hermes-1.md',
+      'slides/03-07f-hermes-2.md',
+      'slides/03-07g-openclaw-1.md',
+      'slides/03-07h-openclaw-2.md',
+      'slides/03-07i-openclaw-3.md',
+
+      { inline: `<section class="act-divider" data-section="epilogue">
+        <div class="act-number">EPILOGUE</div>
+        <h1>우리에게 의미</h1>
+        <p class="subtitle">5개의 메시지, 90일의 길</p>
+      </section>` },
+
+      'slides/99-01-five-messages.md',
+      'slides/99-02-roadmap.md',
+      'slides/99-03-checklist.md',
+      'slides/99-04-qna.md',
+      'slides/99-99-todo.md',
+    ];
+
+    async function loadSlides() {
+      const container = document.getElementById('slidesContainer');
+      const parts = [];
+      for (const item of SLIDE_FILES) {
+        if (item && typeof item === 'object' && item.inline) {
+          parts.push(item.inline);
+          continue;
+        }
+        try {
+          const res = await fetch(item);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          parts.push(await res.text());
+        } catch (err) {
+          console.error('Failed to load:', item, err);
+          parts.push(`<section><h2>⚠️ Load error</h2><p>${item}</p></section>`);
+        }
+      }
+      container.innerHTML = parts.join('\n');
+      document.getElementById('loader').style.display = 'none';
+
+      Reveal.initialize({
+        hash: true,
+        slideNumber: 'c/t',
+        width: 1920,
+        height: 1080,
+        margin: 0.04,
+        minScale: 0.2,
+        maxScale: 2.0,
+        transition: 'slide',
+        backgroundTransition: 'fade',
+        plugins: [ RevealHighlight, RevealNotes ]
+      });
+
+      if (window.mermaid) {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'dark',
+          themeVariables: { fontFamily: 'Pretendard, sans-serif' }
+        });
+      }
+
+      setTimeout(() => {
+        if (window.renderVisualizations) window.renderVisualizations();
+      }, 200);
+
+      Reveal.on('slidechanged', () => {
+        document.querySelectorAll('.mermaid:not([data-processed])').forEach(el => {
+          if (window.mermaid) mermaid.run({ nodes: [el] });
+        });
+        if (window.renderVisualizations) window.renderVisualizations();
+      });
+    }
+
+    loadSlides();
+  </script>
+</body>
+</html>

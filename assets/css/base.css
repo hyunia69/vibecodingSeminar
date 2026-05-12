@@ -1,0 +1,352 @@
+/* =========================================================
+   바이브코딩 세미나 - Base CSS
+   모든 테마 공통 레이아웃, 폰트, 구조
+   ========================================================= */
+
+:root {
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'D2 Coding', Consolas, monospace;
+
+  /* === Spacing scale (절대 px) === */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+
+  /* === Font-size scale (em — .reveal 베이스 위에서) === */
+  --text-caption: 0.72em;   /* 박스 안 출처, 부연 */
+  --text-small: 0.9em;      /* 작은 본문 */
+  --text-body: 1em;         /* 베이스 본문 */
+  --text-lead: 1.4em;       /* 리드 */
+  --text-display: 1.8em;    /* 큰 숫자, 슬로건 */
+
+  /* === Opacity scale === */
+  --opacity-caption: 0.5;
+  --opacity-secondary: 0.75;
+  --opacity-primary: 1;
+
+  /* === Radius === */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+}
+
+/* Reveal.js 기본 폰트 오버라이드 — baseline 20pt → 24pt (전체 +20%) */
+.reveal {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: 24pt;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 0.6em;
+}
+
+.reveal h1 { font-size: 3.5em; }
+.reveal h2 { font-size: 2.4em; }
+.reveal h3 { font-size: 1.6em; }
+.reveal p, .reveal li { font-size: 1.0em; line-height: 1.55; }
+
+.reveal pre, .reveal code {
+  font-family: var(--font-mono);
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+.reveal pre {
+  font-size: 0.62em;
+  line-height: 1.4;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.reveal pre code {
+  padding: 24px 28px;
+  border-radius: 8px;
+  max-height: 70vh;
+}
+
+/* === 막 구분 슬라이드 (Act dividers) === */
+.act-divider {
+  text-align: left;
+  padding-left: 8%;
+}
+
+.act-divider .act-number {
+  font-family: var(--font-mono);
+  font-size: 1.0em;
+  letter-spacing: 0.4em;
+  opacity: 0.6;
+  margin-bottom: 24px;
+}
+
+.act-divider h1 {
+  font-size: 4.5em;
+  margin-bottom: 0.3em;
+}
+
+.act-divider .subtitle {
+  font-size: 1.4em;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+/* === 강조 구분 슬라이드 === */
+.emphasis-divider {
+  text-align: center;
+}
+
+.emphasis-divider .emphasis-mark {
+  font-size: 6em;
+  margin-bottom: 0.2em;
+}
+
+.emphasis-divider h1 {
+  font-size: 3.5em;
+}
+
+.emphasis-divider .subtitle {
+  font-size: 1.3em;
+  opacity: 0.7;
+  margin-top: 0.5em;
+}
+
+/* === 출처 표기 === */
+.reveal .source {
+  display: block;
+  margin-top: 32px;
+  font-size: 0.45em;
+  opacity: 0.55;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* === 인용 === */
+.reveal blockquote {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-size: 1.15em;
+  font-weight: 300;
+  line-height: 1.5;
+  padding: 24px 32px;
+  border-left: 4px solid currentColor;
+  border-radius: 0 8px 8px 0;
+  width: 80%;
+  margin: 0.5em auto;
+  box-shadow: none;
+}
+
+/* === 테이블 === */
+.reveal table {
+  margin: 0.6em auto;
+  font-size: 0.7em;
+  border-collapse: collapse;
+}
+
+.reveal table th {
+  font-weight: 700;
+  padding: 12px 18px;
+  border-bottom: 2px solid currentColor;
+}
+
+.reveal table td {
+  padding: 10px 18px;
+  border-bottom: 1px solid;
+}
+
+/* === 리드 텍스트 === */
+.reveal .lead {
+  font-size: 1.4em;
+  font-weight: 300;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+/* === 키워드 강조 === */
+.reveal .kw {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* === 비교 그리드 === */
+.reveal .compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  text-align: left;
+  margin-top: 1em;
+}
+
+.reveal .compare-grid > div {
+  padding: 24px 28px;
+  border-radius: 12px;
+  border: 1px solid;
+}
+
+.reveal .compare-grid h3 {
+  font-size: 1.2em;
+  margin-top: 0;
+}
+
+/* === 시각화 컨테이너 === */
+.viz-container {
+  width: 100%;
+  height: 70vh;
+  margin: 0.5em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === 테마 스위처 === */
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 18px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.theme-switcher:hover { opacity: 1; }
+
+.theme-switcher button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.theme-switcher button.active {
+  transform: scale(1.15);
+}
+
+/* === Mermaid 컨테이너 === */
+.reveal .mermaid {
+  background: transparent !important;
+  display: flex;
+  justify-content: center;
+}
+
+/* === 슬라이드 번호 === */
+.reveal .slide-number {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: transparent;
+  opacity: 0.4;
+}
+
+/* === 빌드 들어가기 (fragments) 부드럽게 === */
+.reveal .fragment {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* === 박스 (정의 박스, 예시 박스) === */
+.reveal .box {
+  padding: 20px 28px;
+  border-radius: 10px;
+  margin: 0.5em 0;
+  border-left: 4px solid;
+  text-align: left;
+}
+
+.reveal .box-title {
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   유틸 클래스 — 자주 쓰는 패턴
+   미작성 슬라이드 작성 시 inline style 대신 이 클래스를 우선 사용.
+   ========================================================= */
+
+/* 박스 안 작은 출처 — 예: 02-11 통계 박스 안 "— Fountain (HR 스타트업)" */
+.reveal .source-inline {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: var(--text-caption);
+  opacity: var(--opacity-caption);
+  font-style: italic;
+}
+
+/* 큰 숫자 카드 — 통계·메트릭 강조용 */
+.reveal .stat-card {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.reveal .stat-number {
+  font-size: var(--text-display);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.reveal .stat-label {
+  font-size: var(--text-small);
+  opacity: var(--opacity-secondary);
+  margin-top: var(--space-xs);
+  line-height: 1.4;
+}
+
+/* 타임라인 행 — 예: 01-02 evolution timeline */
+.reveal .timeline-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-md);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  text-align: left;
+}
+
+.reveal .timeline-row.timeline-highlight {
+  border-bottom: none;
+  padding: 22px 16px;
+  margin-top: var(--space-xs);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--accent-primary);
+  background: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+  font-weight: 600;
+}
+
+/* 한 줄 강조 callout — 예: 02-12 "같은 git 객체를 공유" */
+.reveal .callout {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+  opacity: 0.9;
+}
+
+.reveal .callout::before {
+  content: "↳ ";
+  color: var(--accent-secondary);
+  margin-right: 4px;
+}
+

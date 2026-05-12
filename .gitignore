@@ -1,0 +1,17 @@
+# Runtime state for the seminar-log Stop hook
+.claude/seminar-log-state.json
+.claude/seminar-queue.jsonl
+
+# Playwright MCP session captures
+.playwright-mcp/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
