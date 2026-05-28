@@ -28,7 +28,7 @@
   </div>
 
   <p class="callout" style="margin-top: var(--space-lg);">
-    두 프레임워크 모두 <strong>universal</strong> — Claude Code · Codex · Cursor · Gemini에서 동작. 모델 lock-in 없음.
+    두 프레임워크를 <strong>Stacking</strong> 하여 사용: Superpowers로 구현하고, GSTACK으로 <strong>On-the-loop Governance</strong> 수행.
   </p>
 
   <small class="source">Superpowers GitHub / GSTACK GitHub, 2026.04</small>

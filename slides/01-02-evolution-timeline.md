@@ -25,13 +25,18 @@
       </div>
     </div>
 
+    <div class="timeline-row">
+      <div class="kw" style="text-align: center;">2026.04</div>
+      <div>Claude Opus 4.7 + Agent SDK — 1M context 시대 개막.</div>
+    </div>
+
     <div class="timeline-row timeline-highlight">
-      <div class="kw" style="text-align: center; background: var(--accent-primary); color: var(--bg-primary);">2026.04</div>
-      <div>Claude Opus 4.7 + Agent SDK + 1M context — 우리가 지금 서있는 자리.</div>
+      <div class="kw" style="text-align: center; background: var(--accent-primary); color: var(--bg-primary);">2026.05</div>
+      <div>Gemini 3.5 Flash (Google I/O) · Claude 4.7 Fast mode — 지능은 기본, 속도 전쟁 시작.</div>
     </div>
   </div>
 
-  <small class="source">출처: Karpathy X / Y Combinator / The New Stack 2026.02</small>
+  <small class="source">출처: Karpathy X / Google I/O 2026 / Anthropic 2026.05</small>
 
   <aside class="notes">
     1년 만에 무슨 일이 일어났는가를 압축해 보여주는 슬라이드.

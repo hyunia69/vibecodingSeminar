@@ -21,7 +21,7 @@
 
     <div class="box">
       <div class="box-title">Desktop / Web — 대화형</div>
-      <p style="font-size: 0.95em;"><strong>Claude.ai</strong>, <strong>ChatGPT</strong>, <strong>Gemini</strong>, <span class="kw">Claude Desktop + MCP</span></p>
+      <p style="font-size: 0.95em;"><strong>Claude.ai</strong>, <strong>ChatGPT (GPT-5.5)</strong>, <strong>Gemini 3.5</strong>, <span class="kw">Claude Desktop + MCP</span></p>
       <p style="font-size: 0.85em; opacity: var(--opacity-secondary); margin-top: var(--space-xs);">설계·리뷰·문서. 파일시스템 직접 조작은 MCP 경유.</p>
     </div>
 
@@ -37,7 +37,7 @@
     오늘은 <strong>Claude Code (CLI)</strong>를 중심에 놓고 본다 — 자동화 깊이가 다르다.
   </p>
 
-  <small class="source">각 도구 공식 사이트, 2026.04 기준</small>
+  <small class="source">각 도구 공식 사이트, 2026.05 기준</small>
 
   <aside class="notes">
     "여러분 뭘 써봤어요?" 한 번 물어보고 시작.

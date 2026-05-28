@@ -203,6 +203,29 @@
       'slides/99-03-checklist.md',
       'slides/99-04-qna.md',
       'slides/99-99-todo.md',
+
+      // =========================================================
+      // RAG 보너스 섹션 — 에필로그 이후 추가 발표용
+      // 슬라이드 추가 시 아래 주석 패턴 유지:
+      //   파일 추가: 'slides/04-xx-rag-이름.md'
+      //   인라인 추가: { inline: `<section ...>...</section>` }
+      // =========================================================
+
+      { inline: `<section class="act-divider" data-section="rag">
+        <div class="act-number">BONUS</div>
+        <h1>RAG</h1>
+        <p class="subtitle">Retrieval-Augmented Generation — LLM에게 참고서를 주는 기술</p>
+      </section>` },
+
+      // RAG_SLIDE_01: 섹션 표지 (위 인라인)
+      // RAG_SLIDE_02–09: 개념편 (왜 필요한가 · 동작 흐름 · 청크 · 임베딩 · 검색 · 도구)
+      'slides/04-01-rag-concepts.md',
+
+      // RAG_SLIDE_10–16: 구현·에이전틱편 (기본 코드 · 한계 · Agentic RAG · ReAct · LangGraph · LangChain)
+      'slides/04-02-rag-agentic.md',
+
+      // RAG_SLIDE_17–20: Graph RAG·정리편 (벡터 한계 · 지식 그래프 · Graph RAG · 전체 지도)
+      'slides/04-03-rag-graph.md',
     ];
 
     async function loadSlides() {
@@ -250,10 +273,18 @@
         if (window.renderVisualizations) window.renderVisualizations();
       }, 200);
 
-      Reveal.on('slidechanged', () => {
-        document.querySelectorAll('.mermaid:not([data-processed])').forEach(el => {
+      // mermaid: 현재 보이는 슬라이드의 다이어그램만 렌더한다.
+      // (비활성 슬라이드는 display:none 이라 크기 측정이 NaN → 깨진 SVG + data-processed 마킹되어 영구 깨짐)
+      function renderMermaidIn(scope) {
+        (scope || document).querySelectorAll('.mermaid:not([data-processed])').forEach(el => {
           if (window.mermaid) mermaid.run({ nodes: [el] });
         });
+      }
+      Reveal.on('ready', (event) => {
+        renderMermaidIn(event && event.currentSlide);
+      });
+      Reveal.on('slidechanged', (event) => {
+        renderMermaidIn(event && event.currentSlide);
         if (window.renderVisualizations) window.renderVisualizations();
       });
     }

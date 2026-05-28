@@ -48,9 +48,10 @@
   - 2026년 4월 16일 출시
   - 4월 23일부터 Claude Code 기본 모델
   - 1M 토큰 컨텍스트 (4.6의 200K에서 5배 증가)
+  - 2026년 5월: "Fast" 모드 연구용 프리뷰 출시 (지능은 유지, 속도 혁신)
   - 멀티 에이전트 코디네이션, 서브에이전트 spawn
   - Agent SDK 제공
-- **사용 위치**: 1-2
+- **사용 위치**: 1-2, 3-1
 
 ---
 
@@ -156,6 +157,21 @@
 - **URL**: https://www.augmentcode.com/tools/best-spec-driven-development-tools
 - **요지**: 6개 SDD 도구 비교 (Intent, Kiro, Spec Kit, OpenSpec, BMAD, Cursor)
 - **사용 위치**: 3-4
+
+### Gemini 3.5 Flash (2026.05.19)
+- **출처**: Google I/O 2026 Keynote
+- **요지**:
+    - "Gemini Intelligence"의 정점. 
+    - 에이전틱 작업 최적화 모델로 3.5 Flash 발표. 
+    - 기존 2.5 대비 추론 속도 2배, 코딩 정확도 22% 향상.
+- **사용 위치**: 1-2, 3-1
+
+### GPT-5.5 Instant (2026.05.05)
+- **출처**: OpenAI "Spring Update 2026"
+- **요지**: 
+    - 4월 23일 GPT-5.5 정식 출시 후 5월 5일 Instant 모델 공개.
+    - 멀티모달 메모리 통합, Gmail/파일 등 개인화 컨텍스트 접근 강화.
+- **사용 위치**: 3-1
 
 ---
 

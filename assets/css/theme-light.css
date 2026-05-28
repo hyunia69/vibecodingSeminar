@@ -5,17 +5,19 @@
 
 :root[data-theme="light"],
 body[data-theme="light"] {
-  --bg-primary: #fafaf7;
-  --bg-secondary: #f0eee8;
-  --bg-tertiary: #e6e3da;
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-muted: #888880;
-  --accent-primary: #4338ca;     /* indigo */
-  --accent-secondary: #ea580c;   /* orange */
-  --accent-danger: #dc2626;      /* red */
-  --border: #d6d2c4;
-  --code-bg: #2d2a26;            /* 코드는 어둡게 (가독성) */
+  --bg-primary: #fcfcfc;
+  --bg-secondary: rgba(243, 244, 246, 0.7);
+  --bg-tertiary: #e5e7eb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --accent-primary: #4f46e5;     /* indigo */
+  --accent-secondary: #f97316;   /* orange */
+  --accent-danger: #ef4444;
+  --border: rgba(0, 0, 0, 0.08);
+  --code-bg: #111827;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
 }
 
 body { background: var(--bg-primary); }
@@ -88,11 +90,15 @@ body { background: var(--bg-primary); }
 
 /* === Box === */
 .reveal .box {
-  background: var(--bg-secondary);
-  border-left-color: var(--accent-primary);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid var(--accent-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.reveal .box-title { color: var(--accent-primary); }
+.reveal .box-title { color: var(--accent-primary); font-weight: 700; }
 
 /* === Code === */
 .reveal pre {

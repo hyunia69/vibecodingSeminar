@@ -31,6 +31,7 @@
 ### 1-2. Claude Opus 4.7과 새 시대 (3분, 슬라이드 2장)
 - 2026.04.16 출시, Claude Code 기본 모델 (4.23부터)
 - 1M context window (5배 증가)
+- 2026.05.14 "Fast" 모드 프리뷰 출시
 - Agent SDK
 - "여러분도 자체 에이전트 구축 가능"
 
@@ -96,7 +97,7 @@
 
 ### 3-1. 도구 지형도 + 로컬 모델 (10분, 슬라이드 4장)
 - CLI / IDE Extension / Desktop / Web 비교표
-- 모델 비교 (Claude Opus 4.7, GPT-5, Gemini 2.5)
+- 모델 비교 (Claude Opus 4.7, GPT-5.5, Gemini 3.5 Flash)
 - 오픈소스 로컬 모델 (DeepSeek V4, Qwen 3.6, Ollama)
 - 우리 팀 시나리오: 일반 → 클라우드, 민감 → 로컬
 

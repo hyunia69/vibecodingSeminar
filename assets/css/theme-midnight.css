@@ -107,11 +107,15 @@ body { background: var(--bg-primary); }
 
 /* === Box === */
 .reveal .box {
-  background: var(--bg-secondary);
-  border-left-color: var(--accent-primary);
+  background: rgba(31, 18, 64, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 110, 199, 0.15);
+  border-left: 4px solid var(--accent-primary);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 110, 199, 0.05);
 }
 
-.reveal .box-title { color: var(--accent-primary); }
+.reveal .box-title { color: var(--accent-primary); text-shadow: 0 0 10px rgba(255, 110, 199, 0.4); }
 
 /* === Code === */
 .reveal pre {

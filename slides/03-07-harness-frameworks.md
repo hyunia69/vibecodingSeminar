@@ -22,7 +22,7 @@
       <tr>
         <td><strong>GSTACK</strong></td>
         <td>Garry Tan (YC CEO)</td>
-        <td><strong>가상 엔지니어링 팀</strong> · 23 스킬 · CEO/Eng/Design/DX 리뷰</td>
+        <td><strong>Governance-as-Code</strong> · 가상 팀 시뮬레이션 · CEO/Eng/Design 리뷰</td>
       </tr>
       <tr>
         <td><strong>OMO</strong> <span style="opacity:0.6; font-size:0.85em;">(Oh My OpenAgent)</span></td>
@@ -37,7 +37,7 @@
   </p>
 
   <p class="callout" style="margin-top: var(--space-lg);">
-    "Superpowers는 <strong>TDD 강제</strong>, GSTACK은 <strong>역할 기반 거버넌스</strong>, OMO는 <strong>멀티 모델 라우팅</strong>."
+    "Superpowers는 <strong>TDD 강제</strong>, GSTACK은 <strong>Governance-as-Code</strong>, OMO는 <strong>멀티 모델 라우팅</strong>."
   </p>
 
   <small class="source">각 프레임워크 GitHub, 2026</small>

@@ -165,6 +165,9 @@
   font-weight: 300;
   line-height: 1.4;
   opacity: 0.85;
+  background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* === 키워드 강조 === */
@@ -260,7 +263,15 @@
 
 /* === 빌드 들어가기 (fragments) 부드럽게 === */
 .reveal .fragment {
-  transition: opacity 0.3s, transform 0.3s;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal .fragment.fade-up.visible {
+  transform: translateY(0);
+}
+
+.reveal .fragment.fade-up {
+  transform: translateY(20px);
 }
 
 /* === 박스 (정의 박스, 예시 박스) === */
